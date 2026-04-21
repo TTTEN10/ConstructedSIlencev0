@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="1400" viewBox="0 0 2400 1400">
+  <rect width="2400" height="1400" fill="#000000"/>
+  <rect x="0" y="0" width="2400" height="1400" fill="#0A0A0A" opacity="0.92"/>
+  <path d="M0 960C320 780 640 760 990 840C1340 920 1700 910 2400 680V1400H0Z" fill="#000000" opacity="0.78"/>
+  <path d="M-30 520C340 380 720 420 1080 560C1440 700 1880 740 2430 520" stroke="#BFBFBF" stroke-opacity="0.16" stroke-width="2"/>
+  <path d="M-30 560C360 450 720 490 1080 620C1440 750 1860 780 2430 610" stroke="#BFBFBF" stroke-opacity="0.10" stroke-width="2"/>
+  <text x="80" y="140" fill="#E5E5E5" font-family="Arial" font-size="26" letter-spacing="10">CONSTRUCTED SILENCE</text>
+  <text x="80" y="178" fill="#8A8A8A" font-family="Arial" font-size="12" letter-spacing="6">CINEMATIC PLACEHOLDER</text>
+</svg>

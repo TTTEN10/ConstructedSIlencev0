@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/svg/hero.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="manifest" href="/manifest.json" />
+    <title>Constructed Silence</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <!-- #region agent log -->
+    <script>
+      fetch('http://127.0.0.1:7877/ingest/e57a92b3-a59f-4bfc-aa61-c17f7566fe39', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'X-Debug-Session-Id': 'e2a24c' },
+        body: JSON.stringify({
+          sessionId: 'e2a24c',
+          runId: 'pre',
+          hypothesisId: 'H0',
+          location: 'index.html:inline',
+          message: 'HTML body parsed (before Vite module)',
+          data: { href: window.location.href },
+          timestamp: Date.now(),
+        }),
+      }).catch(function () {});
+    </script>
+    <!-- #endregion -->
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

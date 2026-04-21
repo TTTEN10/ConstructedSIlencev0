@@ -1,0 +1,47 @@
+---
+description: Luxury fashion web – stack & repo conventions
+globs:
+  - "**/*.{ts,tsx,js,jsx,css,md,mdx,json}"
+alwaysApply: true
+---
+
+## Project stack (authoritative)
+
+- **Framework**: Next.js (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Payments**: Stripe
+- **Animations**: GSAP / Framer Motion
+- **State**: Zustand or React Context (prefer Zustand for app-wide state)
+- **CMS (optional)**: Sanity / Contentful
+
+## Conventions
+
+- Use the App Router (`app/`) with React Server Components by default; only add `"use client"` when needed.
+- Keep integrations isolated under `lib/` (e.g. Stripe client/server helpers).
+- Prefer Zod schemas in `lib/validations.ts` for runtime validation (API inputs, env vars).
+- Prefer Tailwind utilities; use `globals.css` sparingly for base styles and CSS variables.
+
+## Architectural principles
+
+### Separation of concerns
+
+- `components/` → UI only
+- `lib/` → logic + integrations
+- `app/api/` → backend endpoints
+
+### Scalability
+
+- Modular folders
+- Feature-based grouping
+
+### Performance
+
+- App Router (Server Components by default)
+- Lazy loading assets
+- Edge-ready APIs (where appropriate)
+
+## Repo structure tracking (must-do)
+
+After you run any command (install, scaffold, generate, build, test, etc.), **update** `documentation/REPO_SYNTAX_TREE.md` so it reflects the current repo layout (add/remove/move entries as needed).
+
