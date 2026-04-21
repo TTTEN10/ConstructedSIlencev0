@@ -6,6 +6,7 @@ import Footer from '@/Footer';
 import FadeInView from '@/components/FadeInView';
 import { motion } from 'framer-motion';
 import { useCart } from '@/components/hooks/useCart';
+import { flyToCart } from '@/lib/flyToCart';
 
 export default function ProductDetail() {
   const urlParams = new URLSearchParams(window.location.search);
@@ -128,13 +129,16 @@ export default function ProductDetail() {
             <FadeInView delay={0.5}>
               <button
                 className="mt-10 w-full py-4 bg-foreground text-primary-foreground font-inter text-xs tracking-[0.2em] uppercase hover:bg-foreground/90 transition-colors duration-500"
-                onClick={() => {
+                onClick={(e) => {
+                  flyToCart(e.currentTarget);
+                  const resolvedSize = selectedSize ?? product.sizes?.[0] ?? 'OS';
                   addItem(
                     {
-                      id: `${product.id}:${selectedSize ?? 'OS'}`,
+                      id: `${product.id}:${resolvedSize}`,
                       productId: product.id,
                       title: product.name,
-                      variantTitle: selectedSize ? `Size ${selectedSize}` : 'One Size',
+                      variantTitle: resolvedSize === 'OS' ? 'One Size' : `Size ${resolvedSize}`,
+                      imageUrl: product.image_url,
                       price: product.price ?? 0,
                       currency: 'USD',
                     },

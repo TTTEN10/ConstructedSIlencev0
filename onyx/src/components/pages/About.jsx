@@ -58,6 +58,10 @@ export default function About() {
                   reduction, an exercise in finding beauty through removal.
                 </p>
                 <p className="font-inter text-sm text-muted-foreground mt-6 leading-relaxed">
+                  Every piece is hand-made in our atelier — cut, assembled, and finished by hand with 
+                  patience, precision, and restraint.
+                </p>
+                <p className="font-inter text-sm text-muted-foreground mt-6 leading-relaxed">
                   Our atelier operates at the intersection of sculptural form and human 
                   vulnerability. We build garments the way architects build shelter — 
                   with reverence for the body they protect and the space they inhabit.
@@ -89,6 +93,11 @@ export default function About() {
                 Fashion as contemplation. Garments as architecture. Identity as the 
                 space between what is worn and what is felt. Our work is not about 
                 decoration — it is about the dignity of form.
+              </p>
+              <p className="font-inter text-sm text-muted-foreground mt-6 leading-relaxed">
+                We design hand-made clothing with a devotion to texture and touch. Each garment is 
+                crafted by us, in-house, with intention embedded in every seam, every weight, every 
+                silence.
               </p>
               <p className="font-playfair italic text-gold text-lg mt-12">
                 "Constructed silence."

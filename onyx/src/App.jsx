@@ -11,6 +11,8 @@ import ProductDetail from "@/components/pages/ProductDetail";
 import About from "@/components/pages/About";
 import Cart from "@/components/pages/Cart";
 import UIShowcase from "@/components/pages/UIShowcase";
+import CheckoutSuccess from "@/components/pages/CheckoutSuccess";
+import ReturnPolicy from "@/components/pages/ReturnPolicy";
 
 function App() {
   // #region agent log
@@ -38,7 +40,9 @@ function App() {
           <Route path="/collections" element={<Collections />} />
           <Route path="/product" element={<ProductDetail />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout/success" element={<CheckoutSuccess />} />
           <Route path="/about" element={<About />} />
+          <Route path="/return-policy" element={<ReturnPolicy />} />
           <Route path="/ui" element={<UIShowcase />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>

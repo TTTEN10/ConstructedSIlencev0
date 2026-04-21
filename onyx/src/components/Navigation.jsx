@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useCart } from '@/components/hooks/useCart';
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const { items } = useCart();
+  const cartCount = items.reduce((acc, item) => acc + (item.quantity ?? 0), 0);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -25,6 +28,7 @@ export default function Navigation() {
   const navLinks = [
     { label: 'Collections', path: '/collections' },
     { label: 'About', path: '/about' },
+    { label: 'Cart', path: '/cart' },
   ];
 
   return (
@@ -42,27 +46,48 @@ export default function Navigation() {
             </span>
           </Link>
 
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="z-50 group flex items-center gap-3"
-            aria-label="Toggle menu"
-          >
-            <span className="font-inter text-xs tracking-[0.2em] uppercase text-muted-foreground group-hover:text-foreground transition-colors duration-500 hidden md:block">
-              {isOpen ? 'Close' : 'Menu'}
-            </span>
-            <div className="flex flex-col gap-1.5 w-6">
+          <div className="z-50 flex items-center gap-6">
+            <Link
+              to="/cart"
+              className="group inline-flex items-center gap-3"
+              aria-label="Cart"
+            >
+              <span className="font-inter text-xs tracking-[0.2em] uppercase text-muted-foreground group-hover:text-foreground transition-colors duration-500 hidden md:block">
+                Cart
+              </span>
               <span
-                className={`block h-px bg-foreground transition-all duration-500 ${
-                  isOpen ? 'rotate-45 translate-y-[3.5px]' : ''
-                }`}
-              />
-              <span
-                className={`block h-px bg-foreground transition-all duration-500 ${
-                  isOpen ? '-rotate-45 -translate-y-[3.5px]' : ''
-                }`}
-              />
-            </div>
-          </button>
+                id="cart-fly-target"
+                data-cart-fly-target="true"
+                className="relative inline-flex items-center justify-center w-6 h-6 border border-white/10 text-muted-foreground group-hover:text-foreground group-hover:border-white/20 transition-colors duration-500"
+              >
+                <span className="font-inter text-[10px] tracking-wider">
+                  {cartCount}
+                </span>
+              </span>
+            </Link>
+
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="group flex items-center gap-3"
+              aria-label="Toggle menu"
+            >
+              <span className="font-inter text-xs tracking-[0.2em] uppercase text-muted-foreground group-hover:text-foreground transition-colors duration-500 hidden md:block">
+                {isOpen ? 'Close' : 'Menu'}
+              </span>
+              <div className="flex flex-col gap-1.5 w-6">
+                <span
+                  className={`block h-px bg-foreground transition-all duration-500 ${
+                    isOpen ? 'rotate-45 translate-y-[3.5px]' : ''
+                  }`}
+                />
+                <span
+                  className={`block h-px bg-foreground transition-all duration-500 ${
+                    isOpen ? '-rotate-45 -translate-y-[3.5px]' : ''
+                  }`}
+                />
+              </div>
+            </button>
+          </div>
         </div>
       </header>
 
